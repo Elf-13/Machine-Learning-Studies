@@ -77,9 +77,9 @@ from sklearn.metrics import mean_squared_error,mean_absolute_error
 mse=mean_squared_error(y_test,y_pred_test)
 mae=mean_absolute_error(y_test,y_pred_test)
 rmse=np.sqrt(mse)
-print(mse)
-print(mae)
-print(rmse)
+print("mse : ", mse)
+print("mae : ", mae)
+print("rmse : ", rmse)
 
 from sklearn.metrics import r2_score
 score=r2_score(y_test,y_pred_test)
