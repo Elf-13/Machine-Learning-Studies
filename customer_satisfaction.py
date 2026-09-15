@@ -106,3 +106,28 @@ plt.show()
 
 #As the degree increased, the r2 score decreased.
 
+#new data
+
+new_df = pd.read_csv("3-newdatas.csv")
+
+new_df.head(5)
+
+new_df.rename(columns = {"0": "Customer Satisfaction"}, inplace=True)
+
+new_df.head(5)
+
+X_new = new_df[["Customer Satisfaction"]]
+X_new
+
+X_new = scaler.transform(X_new)
+
+X_new_poly = poly.transform(X_new)
+
+y_new = regression.predict(X_new_poly)
+
+plt.plot(X_new, y_new, "r", label="New Predictions")
+plt.scatter(X_train, y_train, label="Training Points")
+plt.scatter(X_test, y_test, label="Test Points")
+plt.legend()
+plt.show()
+
