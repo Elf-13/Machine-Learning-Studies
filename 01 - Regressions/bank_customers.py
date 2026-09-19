@@ -73,7 +73,20 @@ print("score: " , score)
 print(classification_report(y_pred,y_test))
 print("confusion matrix: \n" , confusion_matrix(y_pred,y_test))
 
+from sklearn.model_selection import RandomizedSearchCV
 
+model=LogisticRegression()
+randomcv=RandomizedSearchCV(estimator=model,param_distributions=params,cv=5,scoring='accuracy')
 
+randomcv.fit(X_train,y_train)
 
+randomcv.best_score_
 
+randomcv.best_params_
+
+y_pred=randomcv.predict(X_test)
+
+score=accuracy_score(y_pred,y_test)
+print("score: " , score)
+print(classification_report(y_pred,y_test))
+print("confusion matrix: \n" , confusion_matrix(y_pred,y_test))
